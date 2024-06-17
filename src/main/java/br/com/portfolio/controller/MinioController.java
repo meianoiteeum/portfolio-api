@@ -1,6 +1,5 @@
 package br.com.portfolio.controller;
 
-import br.com.portfolio.dto.FileResponseDTO;
 import br.com.portfolio.dto.ResponseDefault;
 import br.com.portfolio.service.StorageService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.time.Instant;
 import java.util.List;
