@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface StorageService {
     void createBucket(String bucketName);
-    String uploadFile(String projectName, MultipartFile file);
+    URI uploadFile(String projectName, MultipartFile file);
     List<URI> getFiles(String projectName);
+    URI updateFile(String projectName, String nameFile, MultipartFile newFile);
+    void deleteFile(String projectName, String nameFile);
 }

@@ -29,9 +29,9 @@ public class MinioController {
 
     @PostMapping(path = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> fileUpload(@RequestParam String projectName, @RequestPart MultipartFile file) {
-        var url = service.uploadFile(projectName, file);
+        var uri = service.uploadFile(projectName, file);
 
-        return ResponseEntity.created(URI.create(url)).build();
+        return ResponseEntity.created(uri).build();
     }
 
     @GetMapping("/{projectName}")
@@ -40,4 +40,18 @@ public class MinioController {
 
         return ResponseEntity.ok(list);
     }
+
+    @PutMapping(value = "/{projectName}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> updateFile(@PathVariable("projectName") String projectName, @RequestParam String nameFile, @RequestPart MultipartFile newFile){
+        var uri = service.updateFile(projectName, nameFile, newFile);
+
+        return ResponseEntity.created(uri).build();
+    }
+
+    @DeleteMapping("/{projectName}")
+    public ResponseEntity<?> deleteFile(@PathVariable("projectName") String projectName, @RequestParam String nameFile){
+        service.deleteFile(projectName, nameFile);
+        return ResponseEntity.noContent().build();
+    }
+
 }
