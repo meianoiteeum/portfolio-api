@@ -1,9 +1,9 @@
 package br.com.portfolio.model;
 
-import br.com.portfolio.dto.Cep;
+import br.com.portfolio.dto.CepDTO;
 
 public record Address(Integer zipCode, String street, String cityState) {
-    public Address(Cep cep){
-        this(Integer.valueOf(cep.cep()), cep.street(), String.join("/", cep.city(), cep.state()));
+    public Address(CepDTO cepDTO){
+        this(Integer.valueOf(cepDTO.cep()), cepDTO.street(), String.join("/", cepDTO.city(), cepDTO.state()));
     }
 }
