@@ -12,4 +12,8 @@ public record Author(@Id String id, String name, Integer age, Phone phone, Addre
     public Author address(Address address){
         return new Author(null, name, age, phone, address, education, experience, null);
     }
+
+    public Author(String id){
+        this(id,null,null,null,null,null,null,null);
+    }
 }
